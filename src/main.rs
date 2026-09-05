@@ -212,10 +212,24 @@ impl eframe::App for App {
 }
 
 fn main() -> eframe::Result<()> {
+    let icon = {
+        let bytes = include_bytes!("../assets/icon.png");
+        image::load_from_memory(bytes).ok().map(|img| {
+            let img = img.to_rgba8();
+            let (width, height) = img.dimensions();
+            egui::IconData { rgba: img.into_raw(), width, height }
+        })
+    };
+
+    let mut viewport = egui::ViewportBuilder::default()
+        .with_inner_size([520.0, 380.0])
+        .with_min_inner_size([420.0, 320.0]);
+    if let Some(icon) = icon {
+        viewport = viewport.with_icon(icon);
+    }
+
     let options = eframe::NativeOptions {
-        viewport: egui::ViewportBuilder::default()
-            .with_inner_size([520.0, 380.0])
-            .with_min_inner_size([420.0, 320.0]),
+        viewport,
         ..Default::default()
     };
     eframe::run_native(
