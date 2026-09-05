@@ -6,6 +6,9 @@ authors = ["Bram Haegeman"]
 description = "Decompresses Oblivion Remastered .sav files (Oodle-chunked GVAS format) into a readable text dump, for modders."
 license = "LicenseRef-PolyForm-Noncommercial-1.0.0"
 
+[features]
+trace-interp = []
+
 [dependencies]
 eframe = "=0.29.1"
 egui = "=0.29.1"
