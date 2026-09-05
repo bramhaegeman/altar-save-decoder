@@ -8,12 +8,15 @@ This is a **read-only** reverse-engineering tool. It does not edit, patch, or wr
 
 ## How to use it
 
-1. Run the `.exe`.
-2. Click **Choose a .sav file...** and pick a save from `Documents\My Games\Oblivion Remastered\Saved\SaveGames`.
-3. Wait a few seconds — longer for saves from long playthroughs, since there's simply more world state to unpack.
-4. Two files appear next to the tool's `.exe` (never inside your `SaveGames` folder):
-   - `<savename>_readable.txt` — a plain-English property listing
-   - `<savename>_hexdump.txt` — the full raw byte-level dump
+Grab the build for your platform from the [releases page](https://github.com/bramhaegeman/altar-save-decoder/releases/tag/v1.0.0) — Windows and Linux (x86_64) are both supported.
+
+**Windows:** run `Oblivion Remastered Save Decoder.exe`, click **Choose a .sav file...**, and pick a save from `Documents\My Games\Oblivion Remastered\Saved\SaveGames`.
+
+**Linux:** extract the tarball and run `./oblivion-remastered-save-decoder` (`chmod +x` it first if needed). Requires glibc 2.39+ (current Ubuntu/Debian stable or newer) and GTK3, both standard on a desktop install. If you're running the game via Steam Play/Proton, your save lives inside that game's Proton prefix — roughly `~/.steam/steam/steamapps/compatdata/<app id>/pfx/drive_c/users/steamuser/Documents/My Games/Oblivion Remastered/Saved/SaveGames`.
+
+Then on either platform: wait a few seconds (longer for long playthroughs — there's simply more world state to unpack), and two files appear next to the tool (never inside your `SaveGames` folder):
+- `<savename>_readable.txt` — a plain-English property listing
+- `<savename>_hexdump.txt` — the full raw byte-level dump
 
 No install, no settings, nothing to configure.
 
@@ -51,7 +54,10 @@ This tool gets you all the way from "compressed noise" to a readable list of eve
 cargo build --release
 ```
 
-Requires Rust and the MSVC build tools on Windows. No Node/JS toolchain needed.
+No Node/JS toolchain needed either way.
+
+- **Windows:** requires Rust and the MSVC build tools.
+- **Linux:** requires Rust and: `build-essential curl pkg-config libgtk-3-dev libxkbcommon-dev libssl-dev libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev` (Debian/Ubuntu package names — GTK3 is used for the native file picker).
 
 ## Credits & license
 
