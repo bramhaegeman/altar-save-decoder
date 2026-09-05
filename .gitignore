@@ -8,6 +8,10 @@
 # Personal prep material, not part of the tool itself
 /REDDIT_POST.txt
 
+# Superseded by README.md (GitHub renders that on the repo page); README.txt is
+# still generated locally for the shareable release zip, just not tracked here.
+/README.txt
+
 # Local test/debug output from the various test_* binaries
 test_cli_output.bin
 test_cli_output.txt
