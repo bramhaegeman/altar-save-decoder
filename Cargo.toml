@@ -1,0 +1,21 @@
+[package]
+name = "oblivion-remastered-save-decoder"
+version = "1.0.0"
+edition = "2021"
+authors = ["Bram Haegeman"]
+description = "Decompresses Oblivion Remastered .sav files (Oodle-chunked GVAS format) into a readable text dump, for modders."
+license = "LicenseRef-PolyForm-Noncommercial-1.0.0"
+
+[dependencies]
+eframe = "=0.29.1"
+egui = "=0.29.1"
+rfd = "0.17"
+oozextract = "0.5"
+gvas = "0.11"
+byteorder = "1"
+
+[profile.release]
+opt-level = "s"
+lto = true
+codegen-units = 1
+strip = true

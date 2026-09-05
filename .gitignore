@@ -1,0 +1,22 @@
+# Build artifacts
+/target/
+/release-package/
+
+# Never commit personal save files
+/test-samples-DO-NOT-SHARE/
+
+# Personal prep material, not part of the tool itself
+/REDDIT_POST.txt
+
+# Local test/debug output from the various test_* binaries
+test_cli_output.bin
+test_cli_output.txt
+test_interpret_output.txt
+inner-gvas-dump.txt
+*_decoded.txt
+*_readable.txt
+*_hexdump.txt
+
+# OS cruft
+.DS_Store
+Thumbs.db
